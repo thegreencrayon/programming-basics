@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Simple Calculator</h1>
+        <!--First number-->
+        <input type="number" id="number1" placeholder="#"> 
+        <!--Operation-->
+        <select id="operation"> 
+            <option value="add">+</option>
+            <option value="substract">-</option>
+            <option value="multiply">x</option>
+            <option value="divide">/</option>
+            <option value="power">^</option>
+        </select>
+        <!--Second number-->
+        <input type="number" id="number2" placeholder="#"> 
+        <!--Submit button-->
+        <button onclick="calculate()">Submit</button>
+
+        <!--Output-->
+        <p id="result"></p>
+
+        <script src="script.js"></script>
+    </body>
+</html>
