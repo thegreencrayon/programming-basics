@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors Game</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Rock, Paper, Scissors!</h1>
+        <p>Make a selection via click and face of your computer opponent:</p>
+        <!--Selection for choice-->
+        <!--Going to need an event listener in javascript for shoot()-->
+        <div class="gallery">
+            <div class="image-container">
+                <!--Selection for rock-->
+                <img src="https://store.clickhole.com/cdn/shop/files/Untitleddesign_6.png?v=1693423886" 
+                    alt="Rock" class="player-choice" data-choice="rock">
+                <p class="image-label">Rock</p>
+            </div>
+            <div class="image-container">
+                <!--Selection for paper-->
+                <img src="https://assets.manufactum.de/p/082/082675/82675_01.jpg/writing-paper-din-a4.jpg" 
+                    alt="Paper" class="player-choice" data-choice="paper">
+                <p class="image-label">Paper</p>
+            </div>
+            <div class="image-container">
+                <!--Selection for scissors-->
+                <img src="https://www.childrenscornerstore.com/cdn/shop/products/20211015-DSC_7164.jpg?v=1634302847" 
+                    alt="Scissors" class="player-choice" data-choice="scissors">
+                <p class="image-label">Scissors</p>
+            </div>
+        </div>
+        <!--Output result of match-->
+        <p id="result"></p>
+        <img id="computer-choice" alt="" src="">
+
+        <script src="script.js"></script>
+    </body>
+</html>
