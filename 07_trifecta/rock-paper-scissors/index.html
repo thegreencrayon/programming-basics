@@ -2,37 +2,30 @@
 <html>
     <head>
         <title>Rock Paper Scissors Game</title>
-        <link rel="stylesheet" href="style.css">
+        <style rel="stylesheet" href="script.js"></style>
     </head>
     <body>
-        <h1>Rock, Paper, Scissors!</h1>
-        <p>Make a selection via click and face of your computer opponent:</p>
-        <!--Selection for choice-->
-        <!--Going to need an event listener in javascript for shoot()-->
+        <p>Click one of the following moves and go against your computer opponent!</p>
         <div class="gallery">
             <div class="image-container">
-                <!--Selection for rock-->
-                <img src="https://store.clickhole.com/cdn/shop/files/Untitleddesign_6.png?v=1693423886" 
-                    alt="Rock" class="player-choice" data-choice="rock">
-                <p class="image-label">Rock</p>
+                <img class="moves" data-move="rock" alt="Marble rock" src="https://public.blenderkit.com/thumbnails/assets/61de11a51dac4ca5bf5ac7376cf9817d/files/thumbnail_7e89df8f-0c58-4aca-a3cc-f822a1b643d2.jpg.256x256_q85.jpg.webp?webp_generated=1766488698">
+                <label class="image-label">Rock</label>
             </div>
             <div class="image-container">
-                <!--Selection for paper-->
-                <img src="https://assets.manufactum.de/p/082/082675/82675_01.jpg/writing-paper-din-a4.jpg" 
-                    alt="Paper" class="player-choice" data-choice="paper">
-                <p class="image-label">Paper</p>
+                <img class="moves" data-move="paper" alt="Plain white paper" src="https://cld-assets.dick-blick.com/image/upload/c_limit,w_256/f_auto/q_auto/v1/13408-1005-1-4ww?_a=BAVAZGB00">
+                <label class="image-label">Paper</label>
             </div>
             <div class="image-container">
-                <!--Selection for scissors-->
-                <img src="https://www.childrenscornerstore.com/cdn/shop/products/20211015-DSC_7164.jpg?v=1634302847" 
-                    alt="Scissors" class="player-choice" data-choice="scissors">
-                <p class="image-label">Scissors</p>
+                <img class="moves" data-move="scissors" alt="Yellow scissors" src="https://cld-assets.dick-blick.com/image/upload/c_limit,w_256/f_auto/q_auto/v1/57040-1005-1-4ww?_a=BAVAZGB00">
+                <label class="image-label">Scissors</label>
             </div>
         </div>
-        <!--Output result of match-->
-        <p id="result"></p>
-        <img id="computer-choice" alt="" src="">
-
-        <script src="script.js"></script>
+        <!--Displays result of the match-->
+        <p id="text-result"></p>
+        <div id="visual-result" class="image-container">
+            <img src=""> 
+            <label class="image-label"></label>
+        </div>
+        <script href="script.js"></script>
     </body>
 </html>
