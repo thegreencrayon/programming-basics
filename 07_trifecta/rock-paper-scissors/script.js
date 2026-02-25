@@ -1,61 +1,77 @@
-findWinner();
-//playerShoot();
+const moves = document.querySelectorAll(".moves");
 
-// computer decides rock paper or scissors at random
+// sets things in motion when one of the three moves are clicked
+moves.forEach(move => {
+    move.addEventListener("click", function() {
+        // assigns move of player
+        const playerMove = this.dataset.move;
+
+        // assigns move of computer
+        const cmpMove = cmpShoot();
+
+        // determine winner
+        let outcome = analyzeMatch(playerMove,cmpMove);
+        let message = "";
+        if (outcome == "tie") {
+            message = "It was a tie!";
+        } else if (outcome == "player") {
+            message = "You won!";
+        } else {
+            message = "You lost!";
+        }
+
+        // displays result
+        document.getElementById("text-result").textContent = `${message} You chose ${playerMove}. The computer had chosen ${cmpMove}: `
+        let visualResult = document.getElementById("visual-result");
+        // update image of what the computer chose
+        let image = visualResult.querySelector("img");
+        image.src = getCmpMoveImg(cmpMove);
+        visualResult.querySelector("label").textContent = cmpMove;
+        
+    })    
+})
+
+// function that generates random computer move
 function cmpShoot() {
-    const choices = ["rock","paper","scissors"];
-    let computerChoice = "";
-
-    let randomIndex = Math.floor(Math.random() * 2 + 1);
-    computerChoice = choices[randomIndex];
-    return computerChoice;
+    let options = ["rock","paper","scissors"];
+    let randomIndex = Math.floor(Math.random() * 3);
+    return options[randomIndex];
 }
-/*
-function playerShoot() {
-    // selects all option elements for player
-    const playerChoices = document.querySelectorAll("player-choice");
-    
-    // loops through list of options
-    playerChoices.forEach(choice => {
-        // even listener for when player clicks on this choice
-        choice.addEventListener("click", function(event) { // click is the type of event
-            const choice = event.target.dataset.choice;
-        });
-    });
-    const result = document.getElementById("result");
-    result.textContent = choice;
-    return choice;
-}*/
-
-function findWinner() {
-    let playerChoice = document.getElementById("rock").dataset.choice;
-    let computerChoice = cmpShoot();
+// function that determines outcome of match
+function analyzeMatch(player,computer) {
     let winner = "";
-
-    // determine winner
-    if (playerChoice == computerChoice) {
+    if (player == computer) {
         winner = "tie";
-    } else if (playerChoice == "rock") {
-        if (computerChoice == "paper") {
+    } else if (player == "rock") {
+        if (computer == "paper") {
             winner = "computer";
         } else {
             winner = "player";
         }
-    } else if (playerChoice == "paper") {
-        if (computerChoice == "scissors") {
+    } else if (player == "paper") {
+        if (computer == "scissors") {
             winner = "computer";
         } else {
             winner = "player";
         }
-    } else if (playerChoice == "scissors") {
-        if (computerChoice == "rock") {
+    } else if (player == "scissors") {
+        if (computer == "rock") {
             winner = "computer";
         } else {
             winner = "player";
         }
     }
-    // determine the output
-    result.textContent = choice;
-    console.log("The winner is " + winner + " because the computer chose " + computerChoice);
-
+    return winner;
+}
+// helper function to get image of winning move
+function getCmpMoveImg(cmpMove) {
+    let cmpImage = "";
+    if (cmpMove == "rock") {
+        cmpImage = "https://pokestop.io/img/pokemon/geodude-256x256.png";
+    } else if (cmpMove == "paper") {
+        cmpImage = "https://cld-assets.dick-blick.com/image/upload/c_limit,w_256/f_auto/q_auto/v1/13408-1005-1-4ww?_a=BAVAZGB00";
+    } else {
+        cmpImage = "https://cld-assets.dick-blick.com/image/upload/c_limit,w_256/f_auto/q_auto/v1/57040-1005-1-4ww?_a=BAVAZGB00";
+    }
+    return cmpImage;
 }
