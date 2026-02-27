@@ -1,0 +1,36 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+p {
+    text-align: center;
+}
+
+.prompt-container {
+    border: 1px solid black;
+    padding: 3px;
+    width: 450px;
+    margin: 0 auto;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    margin: 10px 5px;
+    cursor: pointer;
+    color: white;
+    width: 125px;
+    height: 60px;
+    font-size: 15px;
+}
+
+#yesBtn {
+    background-color: green;
+}
+
+#noBtn {
+    background-color: red;
+}

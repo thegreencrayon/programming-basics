@@ -17,7 +17,7 @@ makeGuess();
 yesBtn.addEventListener("click", function() {
     if (qType == "guess") {
         result.textContent = `The number is ${guess}!`;
-        promptBox.textContent = "";
+        promptBox.style.display = "none";
         yesBtn.style.display = "none";
         noBtn.style.display = "none";
     } else if (qType == "clarify") {
