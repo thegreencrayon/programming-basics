@@ -21,6 +21,7 @@ yesBtn.addEventListener("click", function() {
         yesBtn.style.display = "none";
         noBtn.style.display = "none";
     } else if (qType == "clarify") {
+        start = guess;
         guess = Math.floor((guess + end) / 2);
         updateGuess();
     }
@@ -32,6 +33,7 @@ noBtn.addEventListener("click", function() {
     if (qType == "guess") {
         askClarification();
     } else if (qType == "clarify") {
+        end = guess;
         guess = Math.floor((start + guess) / 2);
         updateGuess();
     }
@@ -40,6 +42,7 @@ noBtn.addEventListener("click", function() {
 
 function askClarification() {
     promptBox.textContent = `Is the number greater than ${guess}?`
+
     qType = "clarify";
 };
 
