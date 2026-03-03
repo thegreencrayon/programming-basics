@@ -23,17 +23,21 @@ masterPlusBtn.addEventListener("click", function() {
 masterMinusBtn.addEventListener("click", function() {
     const deleteButtons = document.querySelectorAll(".delete-button");
     // loop through each button 
-    deleteButtons.forEach(button => {
-        // show buttons
-        if (masterMinusState == "hide") {
-            button.style.display= "inline-block";
-            masterMinusState = "show";
-        // hide buttons
-        } else if (masterMinusState = "show") {
-            button.style.display= "none";
-            masterMinusState = "hide";
-        }
-    })
+    if (masterMinusState == "hide") {
+        deleteButtons.forEach(button => {
+            button.style.display = "inline-block";
+        });
+    } else if (masterMinusState == "show") {
+        deleteButtons.forEach(button => {
+            button.style.display = "none";
+        });
+    };
+    // change the toggle
+    if (masterMinusState == "show") {
+        masterMinusState = "hide";
+    } else {
+        masterMinusState = "show";
+    }
 });
 
 // add button: adds the inputed text into list of pending items
