@@ -1,9 +1,13 @@
 // access
 const masterPlusBtn = document.getElementById("plus-button");
+const masterMinusBtn = document.getElementById("minus-button");
 const addTaskContainer = document.getElementById("add-task-container");
+const addBtn = document.getElementById("add-button");
+const taskListContainer = document.getElementById("task-list-container");
 
 // states
 let masterPlusState = "show";
+let masterMinusState = "hide";
 
 // master plus: makes the add task container visible / invisible
 masterPlusBtn.addEventListener("click", function() {
@@ -15,9 +19,59 @@ masterPlusBtn.addEventListener("click", function() {
         masterPlusState = "show";
     }
 });
-// master minus: makes the delete buttons visible
+// master minus: makes the delete buttons visible / invisible
+masterMinusBtn.addEventListener("click", function() {
+    const deleteButtons = document.querySelectorAll(".delete-button");
+    // loop through each button 
+    deleteButtons.forEach(button => {
+        // show buttons
+        if (masterMinusState == "hide") {
+            button.style.display= "inline-block";
+            masterMinusState = "show";
+        // hide buttons
+        } else if (masterMinusState = "show") {
+            button.style.display= "none";
+            masterMinusState = "hide";
+        }
+    })
+});
 
 // add button: adds the inputed text into list of pending items
+addBtn.addEventListener("click", function() {
+    // do nothing if input is blank
+    const input = document.getElementById("text-input").value;
+    if (input.trim() == "") {
+        return;
+    }
+    // create a "task-container" div
+    const taskContainer = document.createElement("div");
+    taskContainer.className = "task-container";
+    // put a (1)checkbox (2) text input (3) delete button in the "task-container"
+    const taskCheckbox = document.createElement("input");
+    taskCheckbox.type = "checkbox";
+
+    // text input
+    const taskText = document.createElement("p");
+    taskText.className = "defaultText"; // for formatting dashed line eventually
+    taskText.textContent = input; // the input is the task in the checklist
+
+    // delete button
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete"; 
+    deleteBtn.className = "delete-button";
+    deleteBtn.style.display = "none"; // delete button is invisible by default
+
+    taskContainer.appendChild(taskCheckbox);
+    taskContainer.appendChild(taskText);
+    taskContainer.appendChild(deleteBtn);
+
+    // append the "task-container" into the "task-list-container"
+    taskListContainer.appendChild(taskContainer);
+
+    // clear the input box
+    document.getElementById("text-input").value = "";
+});
+
 
 // delete button: deletes task in its entirety
 
