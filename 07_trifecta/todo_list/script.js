@@ -13,21 +13,32 @@ let masterMinusState = "hide";
 masterPlusBtn.addEventListener("click", function() {
     if (masterPlusState == "show") {
         addTaskContainer.style.display = "none";
-        masterPlusState = "hide";
+        masterPlusState = "hide"; 
+        masterPlusBtn.classList.remove("green-lit"); // change color
+        masterPlusBtn.classList.add("white-lit")
     } else if (masterPlusState == "hide") {
         addTaskContainer.style.display = "flex";
         masterPlusState = "show";
+        masterPlusBtn.classList.add("green-lit"); // change color
+        masterPlusBtn.classList.remove("white-lit")
     }
 });
+
 // master minus: makes the delete buttons visible / invisible
 masterMinusBtn.addEventListener("click", function() {
     const deleteButtons = document.querySelectorAll(".delete-button");
     // loop through each button 
     if (masterMinusState == "hide") {
+        // permission granted to show the buttons now
+        masterMinusBtn.classList.remove("white-lit");
+        masterMinusBtn.classList.add("red-lit");
         deleteButtons.forEach(button => {
             button.style.display = "inline-block";
         });
     } else if (masterMinusState == "show") {
+        // permission denied to show the buttons now
+        masterMinusBtn.classList.remove("red-lit");
+        masterMinusBtn.classList.add("white-lit");
         deleteButtons.forEach(button => {
             button.style.display = "none";
         });
@@ -89,9 +100,9 @@ taskListContainer.addEventListener("click", function(e) {
 
 /*
 For next time
-    1. functional delete button
-    2. css for master buttons to be right next to title
+    1. functional delete button ✅
+    2. css for master buttons to be right next to title ✅
     3. css for each task container to be flex horizontal
-    4. css for delete button color
+    4. css for delete button color ✅
     5. css for strike-through effect when task complete
 */

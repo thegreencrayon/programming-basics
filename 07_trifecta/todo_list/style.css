@@ -1,0 +1,19 @@
+.green-lit {
+    background-color: #65c283;
+}
+.white-lit {
+    background-color: white;
+}
+.red-lit {
+    background-color: #FFCCCB;
+}
+#header-container {
+    display: flex; /*horizontal placement*/
+    gap: 10px; /*spacing between title and + - buttons*/
+    align-items: center; /*vertically centers both*/
+}
+.delete-button {
+    background-color: #C02719;
+    color: white;
+
+}
