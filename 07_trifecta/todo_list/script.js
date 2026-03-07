@@ -49,7 +49,8 @@ addBtn.addEventListener("click", function() {
     }
     // create a "task-container" div
     const taskContainer = document.createElement("div");
-    taskContainer.className = "task-container";
+    taskContainer.className = "task-container"; 
+    // dataid
     // put a (1)checkbox (2) text input (3) delete button in the "task-container"
     const taskCheckbox = document.createElement("input");
     taskCheckbox.type = "checkbox";
@@ -78,5 +79,19 @@ addBtn.addEventListener("click", function() {
 
 
 // delete button: deletes task in its entirety
+taskListContainer.addEventListener("click", function(e) {
+    if (e.target.classList.contains("delete-button")) {
+        e.target.parentElement.remove();
+    }
+});
 
 // check button: marks task for css so it has a visible line
+
+/*
+For next time
+    1. functional delete button
+    2. css for master buttons to be right next to title
+    3. css for each task container to be flex horizontal
+    4. css for delete button color
+    5. css for strike-through effect when task complete
+*/
