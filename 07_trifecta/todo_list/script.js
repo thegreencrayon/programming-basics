@@ -97,12 +97,19 @@ taskListContainer.addEventListener("click", function(e) {
 });
 
 // check button: marks task for css so it has a visible line
+taskListContainer.addEventListener("click", function(e) {
+    if (e.target.matches('input[type="checkbox"]')) {
+        // select parent div
+        const taskDiv = e.target.parentElement;
+        // select <p> of parent div
+        const taskText = taskDiv.querySelector("p");
 
-/*
-For next time
-    1. functional delete button ✅
-    2. css for master buttons to be right next to title ✅
-    3. css for each task container to be flex horizontal
-    4. css for delete button color ✅
-    5. css for strike-through effect when task complete
-*/
+        // display text based on if checkbox is marked or not
+        if (e.target.checked) {
+            taskText.classList = "strikeout-text";
+        }
+        if (!e.target.checked) {
+            taskText.classList = "defaultText";
+        }
+    }
+});

@@ -7,6 +7,14 @@
 .red-lit {
     background-color: #FFCCCB;
 }
+.task-container {
+    display: flex;
+    align-items: center;
+}
+.strikeout-text {
+    text-decoration: line-through;
+    color: grey;
+}
 #header-container {
     display: flex; /*horizontal placement*/
     gap: 10px; /*spacing between title and + - buttons*/
@@ -16,4 +24,10 @@
     background-color: #C02719;
     color: white;
 
+}
+input {
+    padding: 5px;
+}
+p {
+    padding: 1px;
 }
